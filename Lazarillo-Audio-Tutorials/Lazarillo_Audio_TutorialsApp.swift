@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+
 
 @main
 struct Lazarillo_Audio_TutorialsApp: App {
@@ -15,3 +18,5 @@ struct Lazarillo_Audio_TutorialsApp: App {
         }
     }
 }
+
+

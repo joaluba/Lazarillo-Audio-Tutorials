@@ -11,6 +11,12 @@
 		BD2E3B1E2E5B584600CE566E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B1D2E5B584600CE566E /* ContentView.swift */; };
 		BD2E3B202E5B584800CE566E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2E3B1F2E5B584800CE566E /* Assets.xcassets */; };
 		BD2E3B232E5B584800CE566E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2E3B222E5B584800CE566E /* Preview Assets.xcassets */; };
+		BD2E3B2E2E5B62F700CE566E /* WaypointTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B2D2E5B62F700CE566E /* WaypointTutView.swift */; };
+		BD2E3B302E5B63E900CE566E /* WindTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B2F2E5B63E900CE566E /* WindTutView.swift */; };
+		BD2E3B322E5B641500CE566E /* RelbearTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B312E5B641500CE566E /* RelbearTutView.swift */; };
+		BD2E3B342E5B647700CE566E /* HomeportTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B332E5B647700CE566E /* HomeportTutView.swift */; };
+		BD2E3B362E5B64A500CE566E /* ObstacleTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */; };
+		BD2E3B382E5B821700CE566E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B372E5B821700CE566E /* AudioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		BD2E3B1D2E5B584600CE566E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD2E3B1F2E5B584800CE566E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD2E3B222E5B584800CE566E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD2E3B2D2E5B62F700CE566E /* WaypointTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointTutView.swift; sourceTree = "<group>"; };
+		BD2E3B2F2E5B63E900CE566E /* WindTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindTutView.swift; sourceTree = "<group>"; };
+		BD2E3B312E5B641500CE566E /* RelbearTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelbearTutView.swift; sourceTree = "<group>"; };
+		BD2E3B332E5B647700CE566E /* HomeportTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeportTutView.swift; sourceTree = "<group>"; };
+		BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleTutView.swift; sourceTree = "<group>"; };
+		BD2E3B372E5B821700CE566E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +64,13 @@
 			isa = PBXGroup;
 			children = (
 				BD2E3B1B2E5B584600CE566E /* Lazarillo_Audio_TutorialsApp.swift */,
+				BD2E3B372E5B821700CE566E /* AudioManager.swift */,
 				BD2E3B1D2E5B584600CE566E /* ContentView.swift */,
+				BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */,
+				BD2E3B332E5B647700CE566E /* HomeportTutView.swift */,
+				BD2E3B2D2E5B62F700CE566E /* WaypointTutView.swift */,
+				BD2E3B2F2E5B63E900CE566E /* WindTutView.swift */,
+				BD2E3B312E5B641500CE566E /* RelbearTutView.swift */,
 				BD2E3B1F2E5B584800CE566E /* Assets.xcassets */,
 				BD2E3B212E5B584800CE566E /* Preview Content */,
 			);
@@ -138,7 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD2E3B1E2E5B584600CE566E /* ContentView.swift in Sources */,
+				BD2E3B342E5B647700CE566E /* HomeportTutView.swift in Sources */,
+				BD2E3B362E5B64A500CE566E /* ObstacleTutView.swift in Sources */,
 				BD2E3B1C2E5B584600CE566E /* Lazarillo_Audio_TutorialsApp.swift in Sources */,
+				BD2E3B382E5B821700CE566E /* AudioManager.swift in Sources */,
+				BD2E3B2E2E5B62F700CE566E /* WaypointTutView.swift in Sources */,
+				BD2E3B322E5B641500CE566E /* RelbearTutView.swift in Sources */,
+				BD2E3B302E5B63E900CE566E /* WindTutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
