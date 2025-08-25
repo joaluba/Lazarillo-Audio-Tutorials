@@ -1,4 +1,4 @@
-### Testing Audio Features for Capitan Lazarillo
+### Testing Audio Features for iOS App "Capitan Lazarillo"
 
 Capitan Lazarillo is an iOS application designed to support visually impaired sailors. 
 It provides real-time sonification of sailing parameters such as waypoint position, wind speed and direction, obstacles, and boat inclination, helping users navigate safely at sea.
