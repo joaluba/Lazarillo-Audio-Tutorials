@@ -17,6 +17,8 @@
 		BD2E3B342E5B647700CE566E /* HomeportTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B332E5B647700CE566E /* HomeportTutView.swift */; };
 		BD2E3B362E5B64A500CE566E /* ObstacleTutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */; };
 		BD2E3B382E5B821700CE566E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2E3B372E5B821700CE566E /* AudioManager.swift */; };
+		BD8F3DB72E5F138E00035AC7 /* speech_sample.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD8F3DB62E5F138E00035AC7 /* speech_sample.wav */; };
+		BD8F3DB92E5F398900035AC7 /* BasicAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8F3DB82E5F398900035AC7 /* BasicAudioView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		BD2E3B332E5B647700CE566E /* HomeportTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeportTutView.swift; sourceTree = "<group>"; };
 		BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleTutView.swift; sourceTree = "<group>"; };
 		BD2E3B372E5B821700CE566E /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		BD8F3DB62E5F138E00035AC7 /* speech_sample.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = speech_sample.wav; sourceTree = "<group>"; };
+		BD8F3DB82E5F398900035AC7 /* BasicAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				BD2E3B1B2E5B584600CE566E /* Lazarillo_Audio_TutorialsApp.swift */,
 				BD2E3B372E5B821700CE566E /* AudioManager.swift */,
 				BD2E3B1D2E5B584600CE566E /* ContentView.swift */,
+				BD8F3DB82E5F398900035AC7 /* BasicAudioView.swift */,
 				BD2E3B352E5B64A500CE566E /* ObstacleTutView.swift */,
 				BD2E3B332E5B647700CE566E /* HomeportTutView.swift */,
 				BD2E3B2D2E5B62F700CE566E /* WaypointTutView.swift */,
@@ -81,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				BD2E3B222E5B584800CE566E /* Preview Assets.xcassets */,
+				BD8F3DB62E5F138E00035AC7 /* speech_sample.wav */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -143,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8F3DB72E5F138E00035AC7 /* speech_sample.wav in Resources */,
 				BD2E3B232E5B584800CE566E /* Preview Assets.xcassets in Resources */,
 				BD2E3B202E5B584800CE566E /* Assets.xcassets in Resources */,
 			);
@@ -158,6 +165,7 @@
 				BD2E3B1E2E5B584600CE566E /* ContentView.swift in Sources */,
 				BD2E3B342E5B647700CE566E /* HomeportTutView.swift in Sources */,
 				BD2E3B362E5B64A500CE566E /* ObstacleTutView.swift in Sources */,
+				BD8F3DB92E5F398900035AC7 /* BasicAudioView.swift in Sources */,
 				BD2E3B1C2E5B584600CE566E /* Lazarillo_Audio_TutorialsApp.swift in Sources */,
 				BD2E3B382E5B821700CE566E /* AudioManager.swift in Sources */,
 				BD2E3B2E2E5B62F700CE566E /* WaypointTutView.swift in Sources */,

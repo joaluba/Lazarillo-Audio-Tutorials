@@ -12,8 +12,9 @@ struct WaypointTut: View {
     
     // initialize AudioManager class (contains my functions for playback)
     let audioManager = AudioManager()
+    
     // string that will be printed while the synthesizer is speaking
-    @State private var lastUtterance: String = ""
+    @State private var text_to_speak: String = ""
     
     
     var body: some View {
@@ -21,19 +22,18 @@ struct WaypointTut: View {
             Text("Waypoint tutorial\n")
             Text("Demo of the sonification for waypoints")
             
-            // Example pool of directions
-            let directions = ["one o’clock", "two o’clock", "three o’clock", "five o’clock", "six o’clock", "twelve o’clock"]
-            
             Button(
                 
                 action:{
-                    // Pick random direction & distance
-                    let direction = directions.randomElement() ?? "three o’clock"
-                    let distance = Int.random(in: 100...500)
-
-                    // Play & save spoken text
-                    lastUtterance = audioManager.playWaypointInfo(direction: direction, distance: distance)
-                }, label:{
+                    // pick random direction & distance
+                    let hour = (Int((Float.random(in: 0...360)/30).rounded())-1) % 12 + 1
+                    let distance = Int.random(in: 1...300)
+                    
+                    // generate and play spoken text
+                    text_to_speak="Waypoint at \(hour) o’clock, \(distance) meters away"
+                    audioManager.synth_and_play_speech(text: text_to_speak)
+                },
+                label:{
                     Image("waypoint")
                         .resizable()
                         .scaledToFit()
@@ -46,8 +46,8 @@ struct WaypointTut: View {
             
             Text("Press to start demo")
             
-            if !lastUtterance.isEmpty {
-                Text("Spoken: \(lastUtterance)")
+            if !text_to_speak.isEmpty {
+                Text("Spoken: \(text_to_speak)")
                     .padding()
                     .multilineTextAlignment(.center)
             }

@@ -13,7 +13,8 @@ struct ContentView: View {
             VStack(spacing: 20) {
                 Text("Audio Tutorials for Capitan Lazarillo")
                     .font(.title)
-
+                
+                NavigationLink("Basic Audio", destination: BasicAudio())
                 NavigationLink("Waypoint tutorial", destination: WaypointTut())
                 NavigationLink("Wind tutorial", destination: WindTut())
                 NavigationLink("Relative bearing tutorial", destination: RelbearTut())
