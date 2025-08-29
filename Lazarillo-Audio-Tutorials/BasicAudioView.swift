@@ -12,8 +12,14 @@ struct BasicAudio: View {
     // initialize AudioManager class (contains my functions for playback)
     let audioManager = AudioManager()
     
-    // string that will be printed while the synthesizer is speaking
+    // initialize string that will be printed while the synthesizer is speaking
     @State private var text_to_speak: String = ""
+    
+    // initialize var for audio file name to play
+    @State private var myaudiofilename: String = ""
+    
+    // initialize var for audio file name to play
+    @State private var mydirection: Float = 0.0
     
     
     var body: some View {
@@ -21,7 +27,9 @@ struct BasicAudio: View {
             Text("Basic audio functions")
             
             Button(action: {
-                audioManager.play_audio_file(filename: "speech_sample")
+                
+                myaudiofilename="speech_sample"
+                audioManager.play_audio_file(filename: myaudiofilename)
             }) {
                 Text("Play audio from file")
                     .font(.headline)
@@ -30,6 +38,33 @@ struct BasicAudio: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
+            
+            if !myaudiofilename.isEmpty {
+                Text("Playing back: \(myaudiofilename).wav")
+                    .padding()
+                    .multilineTextAlignment(.center)
+            }
+            
+            
+            Button(action: {
+                mydirection=Float.random(in: 0...360)
+                myaudiofilename="speech_sample"
+                audioManager.play_audio_file_in_space(filename: myaudiofilename, direction: mydirection )
+            }) {
+                Text("Play audio from file")
+                    .font(.headline)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            
+            if !myaudiofilename.isEmpty {
+                Text("Playing back: \(myaudiofilename).wav")
+                    .padding()
+                    .multilineTextAlignment(.center)
+            }
+            
             
             Button(action: {
                 // pick random direction & distance

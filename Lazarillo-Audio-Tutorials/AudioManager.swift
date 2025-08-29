@@ -16,13 +16,75 @@ class AudioManager{
     // --- initialize empty basic audio player ---
     // (using ? is the way to initialize it without specific url - this is the standard way to
     // declare a basic audio player in a class when we don’t know the audio file at initialization time)
-    private var MyAudioPlayer: AVAudioPlayer? = nil
+    private var MyAudioPlayer = AVAudioPlayer()
     
     // --- initialize audio engine and its nodes ---
-    private let MyEngine = AVAudioEngine()
-    private let MyAudioPlayerNode = AVAudioPlayerNode()
-    private let MyEnvironmentNode = AVAudioEnvironmentNode()
+    private var MyEngine = AVAudioEngine()
+    private var MyAudioPlayerNode = AVAudioPlayerNode()
+    private var MyEnvironmentNode = AVAudioEnvironmentNode()
+    private var MyReverb = AVAudioUnitReverb()
     
+    // ------ set up signal flow in the audio engine ------
+    func setupAudioEngine() {
+        
+        MyEngine.attach(MyAudioPlayerNode)
+        MyEngine.attach(MyEnvironmentNode)
+        MyEngine.attach(MyReverb)
+
+        // Player -> Spatializer -> Output
+        MyEngine.connect(MyAudioPlayerNode, to: MyEnvironmentNode, format: nil)
+        MyEngine.connect(MyEnvironmentNode, to: MyReverb, format: nil)
+        MyEngine.connect(MyReverb, to: MyEngine.mainMixerNode, format: nil)
+    
+        MyEngine.mainMixerNode.outputVolume = 0.1
+        
+        do {
+            try MyEngine.start()
+        } catch {
+            print("Error starting engine: \(error)")
+        }
+    }
+    
+    // ------ Function to play back audio from a file using Audio Engine ------
+    func play_audio_file_in_space(filename: String, direction: Float) {
+        
+        if MyAudioPlayerNode.isPlaying {
+            MyAudioPlayerNode.stop()
+        }
+        
+        // set up audio engine
+        setupAudioEngine()
+        
+        // Place listener at the origin
+        MyEnvironmentNode.listenerPosition = AVAudio3DPoint(x: 0, y: 0, z: 0)
+        
+        // Place sound source in a circle around listener
+        let radians = direction * .pi / 180
+        let x = cos(radians) * 2.0
+        let z = sin(radians) * 2.0
+        MyAudioPlayerNode.position = AVAudio3DPoint(x: x, y: 0, z: z)
+        
+        // Configure reverb
+        MyReverb.loadFactoryPreset(.mediumRoom)
+        MyReverb.wetDryMix = 50 // percentage of effect applied
+        
+        // guard let ... else { ... return } =
+        // if either the URL or audio file could not be created, stop and exit the function
+        guard let url = Bundle.main.url(forResource: filename, withExtension: ".wav"),
+              let audioFile = try? AVAudioFile(forReading: url) else {
+            print("File not found: \(filename)")
+            return
+        }
+        
+        do {
+            try MyEngine.start()
+            MyAudioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+            MyAudioPlayerNode.play()
+            print("Playing \(filename) at direction \(direction) deg")
+        } catch {
+            print("Error: \(error)")
+        }
+    }
     
 
     // ------ Function to synthesize and play back speech ------
@@ -46,14 +108,21 @@ class AudioManager{
     
     // ------ Function to play back audio from a file ------
     func play_audio_file(filename: String) {
+        
+        // if the player is already playing back something, stop it
+        if MyAudioPlayer.isPlaying {
+            MyAudioPlayer.stop()
+        }
+                
         if let soundPath = Bundle.main.path(forResource: filename, ofType: "wav") {
             let url = URL(fileURLWithPath: soundPath)
             do {
                 // Fill MyAudioPlayer with a specific audio url
                 MyAudioPlayer = try AVAudioPlayer(contentsOf: url)
+                
                 // Playback
-                MyAudioPlayer?.prepareToPlay() //optional, to reduce latency
-                MyAudioPlayer?.play()
+                MyAudioPlayer.prepareToPlay() //optional, to reduce latency
+                MyAudioPlayer.play()
             } catch {
                 print("Error loading or playing clip: \(error)")
             }
@@ -61,8 +130,6 @@ class AudioManager{
             print("Audio file \(filename).wav not found in bundle.")
         }
     }
-    
-    
     
     
     
